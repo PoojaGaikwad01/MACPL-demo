@@ -5,12 +5,12 @@
 
   /* ---- Content: edit here ---- */
   var PROCESSES = [
-    { id: 'cut', name: 'Plasma cutting', body: 'CNC plasma cutting turns plate into accurate blanks for frames, links and brackets, ready for forming and welding with minimal rework.', tags: ['CNC profile cutting', 'Plate blanks', 'Heavy fabrication'], image: '', video: 'https://www.youtube.com/watch?v=vPwjm4bx5XY' },
-    { id: 'bend', name: 'Tube bending', body: 'A CNC cold tube bender and a robotic hot-bending cell each run more than 2,000 parts a day. Bending well takes metallurgy as much as machinery, and we have both.', tags: ['CNC cold bending', 'Robotic hot bending', '2,000+ parts/day each'], image: '', video: 'https://www.youtube.com/watch?v=7Ba8KVW0Pok' },
-    { id: 'weld', name: 'Welding', body: 'Skilled welders and robotic cells hold process parameters tight, so every joint on a steering column or fork is as strong as the design demands.', tags: ['Robotic welding', 'MIG / TIG', 'Fixture-controlled'], image: '', video: '' },
-    { id: 'heat', name: 'Heat treatment', body: 'We design and build our own furnaces. Strictly controlled parameters give the exact microstructure needed, stress-relieved and normalised, batch after batch.', tags: ['In-house furnaces', 'Stress relieving', 'Normalising'], image: '', video: 'https://www.youtube.com/watch?v=NaewbxKqvD0' },
-    { id: 'cast', name: 'Aluminium casting', body: 'Gravity die casting with alloy made in-house, which cuts material cost substantially. Tight process control delivers castings without blow holes.', tags: ['Gravity die casting', 'In-house alloy', 'Zero blow-hole target'], image: '', video: 'https://www.youtube.com/watch?v=sTr3GobQtg8' },
-    { id: 'coat', name: 'Surface finish', body: 'Surface treatment and powder coating protect parts such as under-bracket assemblies against corrosion and wear in the field.', tags: ['Pre-treatment', 'Powder coating', 'Corrosion protection'], image: '', video: '' }
+    { id: 'cut', name: 'Plasma cutting', body: 'CNC plasma cutting turns plate into accurate blanks for frames, links and brackets, ready for forming and welding with minimal rework.', tags: ['CNC profile cutting', 'Plate blanks', 'Heavy fabrication'], image: 'assets/images/photos/processes/plasma-cutting.jpg', video: 'https://www.youtube.com/watch?v=vPwjm4bx5XY' },
+    { id: 'bend', name: 'Tube bending', body: 'A CNC cold tube bender and a robotic hot-bending cell each run more than 2,000 parts a day. Bending well takes metallurgy as much as machinery, and we have both.', tags: ['CNC cold bending', 'Robotic hot bending', '2,000+ parts/day each'], image: 'assets/images/photos/processes/tube-bending.jpg', video: 'https://www.youtube.com/watch?v=7Ba8KVW0Pok' },
+    { id: 'weld', name: 'Welding', body: 'Skilled welders and robotic cells hold process parameters tight, so every joint on a steering column or fork is as strong as the design demands.', tags: ['Robotic welding', 'MIG / TIG', 'Fixture-controlled'], image: 'assets/images/photos/processes/welding.jpg', video: '' },
+    { id: 'heat', name: 'Heat treatment', body: 'We design and build our own furnaces. Strictly controlled parameters give the exact microstructure needed, stress-relieved and normalised, batch after batch.', tags: ['In-house furnaces', 'Stress relieving', 'Normalising'], image: 'assets/images/photos/processes/heat-treatment.jpg', video: 'https://www.youtube.com/watch?v=NaewbxKqvD0' },
+    { id: 'cast', name: 'Aluminium casting', body: 'Gravity die casting with alloy made in-house, which cuts material cost substantially. Tight process control delivers castings without blow holes.', tags: ['Gravity die casting', 'In-house alloy', 'Zero blow-hole target'], image: 'assets/images/photos/processes/aluminium-casting.jpg', video: 'https://www.youtube.com/watch?v=sTr3GobQtg8' },
+    { id: 'coat', name: 'Surface finish', body: 'Surface treatment and powder coating protect parts such as under-bracket assemblies against corrosion and wear in the field.', tags: ['Pre-treatment', 'Powder coating', 'Corrosion protection'], image: 'assets/images/photos/processes/surface-finish.jpg', video: '' }
   ];
 
   var SEGMENTS = [
@@ -23,21 +23,21 @@
 
   /* image: path like 'assets/images/products/bucket-link.jpg' — leave '' for placeholder */
   var PRODUCTS = [
-    { seg: 'two', segment: 'Two-wheeler', name: 'Under-bracket assembly', note: 'Powder-coated, for motorcycle front suspension forks.', image: '' },
-    { seg: 'two', segment: 'Two-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'For electric two-wheelers, disc-brake version.', image: '' },
-    { seg: 'two', segment: 'Two-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'For electric two-wheelers, drum-brake version.', image: '' },
-    { seg: 'three', segment: 'Three-wheeler', name: 'Steering column, cargo', note: 'For three-wheel cargo vehicles.', image: '' },
-    { seg: 'three', segment: 'Three-wheeler', name: 'Steering column, passenger', note: 'For three-wheel passenger vehicles.', image: '' },
-    { seg: 'three', segment: 'Three-wheeler', name: 'Front fork, cargo', note: 'For three-wheel cargo vehicles.', image: '' },
-    { seg: 'three', segment: 'Three-wheeler EV', name: 'Telescopic suspension fork, Ø41 mm', note: 'Rated for a 700 kg transport payload.', image: '' },
-    { seg: 'three', segment: 'Three-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'Rated for a 680 kg transport payload.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Bucket link', note: 'For excavators.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Link arm', note: 'For excavators.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Dozer blade', note: 'For excavators.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Engine frame', note: 'For excavators.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Rear chassis frame', note: 'For vibrating compactors.', image: '' },
-    { seg: 'earth', segment: 'Earth-moving', name: 'Star plate', note: 'For crawler frames.', image: '' },
-    { seg: 'agri', segment: 'Agriculture', name: 'Front axle assembly', note: 'For tractors.', image: '' }
+    { seg: 'two', segment: 'Two-wheeler', name: 'Under-bracket assembly', note: 'Powder-coated, for motorcycle front suspension forks.', image: 'assets/images/photos/products/under-bracket.jpg' },
+    { seg: 'two', segment: 'Two-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'For electric two-wheelers, disc-brake version.', image: 'assets/images/photos/products/fork-2w-disc.jpg' },
+    { seg: 'two', segment: 'Two-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'For electric two-wheelers, drum-brake version.', image: 'assets/images/photos/products/fork-2w-drum.jpg' },
+    { seg: 'three', segment: 'Three-wheeler', name: 'Steering column, cargo', note: 'For three-wheel cargo vehicles.', image: 'assets/images/photos/products/steering-column-cargo.jpg' },
+    { seg: 'three', segment: 'Three-wheeler', name: 'Steering column, passenger', note: 'For three-wheel passenger vehicles.', image: 'assets/images/photos/products/steering-column-passenger.jpg' },
+    { seg: 'three', segment: 'Three-wheeler', name: 'Front fork, cargo', note: 'For three-wheel cargo vehicles.', image: 'assets/images/photos/products/front-fork-cargo.jpg' },
+    { seg: 'three', segment: 'Three-wheeler EV', name: 'Telescopic suspension fork, Ø41 mm', note: 'Rated for a 700 kg transport payload.', image: 'assets/images/photos/products/fork-3w-41.jpg' },
+    { seg: 'three', segment: 'Three-wheeler EV', name: 'Telescopic suspension fork, Ø30 mm', note: 'Rated for a 680 kg transport payload.', image: 'assets/images/photos/products/fork-3w-30.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Bucket link', note: 'For excavators.', image: 'assets/images/photos/products/bucket-link.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Link arm', note: 'For excavators.', image: 'assets/images/photos/products/link-arm.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Dozer blade', note: 'For excavators.', image: 'assets/images/photos/products/dozer-blade.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Engine frame', note: 'For excavators.', image: 'assets/images/photos/products/engine-frame.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Rear chassis frame', note: 'For vibrating compactors.', image: 'assets/images/photos/products/rear-chassis-frame.jpg' },
+    { seg: 'earth', segment: 'Earth-moving', name: 'Star plate', note: 'For crawler frames.', image: 'assets/images/photos/products/star-plate.jpg' },
+    { seg: 'agri', segment: 'Agriculture', name: 'Front axle assembly', note: 'For tractors.', image: 'assets/images/photos/products/front-axle.jpg' }
   ];
 
   function el(tag, attrs, children) {
@@ -93,7 +93,7 @@
       if (focus) tabs[i].focus();
       panel.setAttribute('aria-labelledby', 'tab-' + p.id);
       var media = el('div', { class: 'ph proc-media' }, [el('span', { class: 'ph-label', text: '[Process photo: ' + p.name + ']' })]);
-      if (p.image) { media.style.backgroundImage = 'url(' + p.image + ')'; media.innerHTML = ''; }
+      if (p.image) { media.style.backgroundImage = 'url(' + p.image + ')'; media.innerHTML = ''; media.setAttribute('role', 'img'); media.setAttribute('aria-label', p.name + ' photo'); }
       var text = el('div', { class: 'proc-text' }, [
         (function () { var h = el('div', { class: 'hue-bar' }); h.style.background = HUES[i]; return h; })(),
         el('h3', { text: p.name }),
