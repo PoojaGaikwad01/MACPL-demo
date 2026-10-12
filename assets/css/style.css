@@ -10,6 +10,7 @@
   --body:"Trebuchet MS","Segoe UI",sans-serif;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);overflow-x:hidden}
 img{max-width:100%;display:block}
@@ -142,17 +143,17 @@ h1,h2,h3{font-family:var(--head);font-weight:600;margin:0}
 .plant ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
 
 /* Group & values */
-.group-list{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.values{flex:1 1 460px;display:flex;flex-direction:column;gap:4px}
-.value{padding:22px 28px;display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
-.value b{font-family:var(--head);font-size:22px;font-weight:600;min-width:9ch}
-.value span{font-size:15px}
+.value-grid{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:4px}
+.value-grid li{padding:24px 22px 26px;display:flex;flex-direction:column;gap:8px}
+.value-grid span{font-size:14px}
+.value-grid b{font-family:var(--head);font-size:22px;font-weight:600}
+.value-grid p{margin:0;font-size:15px;line-height:1.5}
 .v1{background:var(--red);color:#fff}
-.v2{background:#D9461F;color:#fff;margin-left:18px}
-.v3{background:var(--o2);color:#1b1b1b;margin-left:36px}
-.v4{background:var(--o3);color:#1b1b1b;margin-left:54px}
-.v5{background:var(--o4);color:#1b1b1b;margin-left:72px}
-.v6{background:var(--yellow);color:#1b1b1b;margin-left:90px}
+.v2{background:#D9461F;color:#fff}
+.v3{background:var(--o2);color:#1b1b1b}
+.v4{background:var(--o3);color:#1b1b1b}
+.v5{background:var(--o4);color:#1b1b1b}
+.v6{background:var(--yellow);color:#1b1b1b}
 
 /* Careers */
 .careers{display:flex;flex-wrap:wrap;background:var(--blue);color:#fff}
@@ -176,6 +177,7 @@ textarea{min-height:140px;resize:vertical}
 .field .err{font-size:14px;color:#b3261e;min-height:0}
 input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
 .form-box .btn{margin-top:24px}
+#form-status:empty{display:none}
 .sent{min-height:360px;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .sent h3{font-size:28px;color:var(--blue)}
 .sent p{margin:0;font-size:17px;line-height:1.6}
@@ -235,11 +237,12 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
 .tpm span{font-size:14px}
 .tpm b{font-family:var(--head);font-size:24px;font-weight:600}
 
-/* Group: company list */
-.companies{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:2px;background:var(--line)}
-.companies li{background:#fff;padding:18px 22px;font-size:17px}
-.companies a{text-decoration:none;font-weight:600}
-.companies small{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+/* Group: company grid */
+.group-sec{padding:64px 0}
+.company-grid{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.company-grid li{background:var(--soft);border-left:6px solid var(--blue);padding:22px 24px;display:flex;flex-direction:column;gap:6px;min-height:96px;justify-content:center}
+.company-grid b{font-family:var(--head);font-size:19px;font-weight:600;color:var(--blue)}
+.company-grid a{font-size:15px;color:var(--rust);align-self:flex-start}
 
 /* Careers: lists */
 .ticks{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;font-size:17px;line-height:1.6}
@@ -247,6 +250,25 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
 .ticks li::before{content:"";position:absolute;left:0;top:.6em;width:14px;height:6px;background:var(--o3)}
 .notice{margin-top:36px;padding:28px 32px;background:var(--soft);border-left:6px solid var(--o3);font-size:17px;line-height:1.6}
 .notice p{margin:0}.notice p+p{margin-top:10px}
+
+/* Contact page */
+.page-hero.compact .wrap{padding-top:40px;padding-bottom:48px}
+.page-hero.compact h1{font-size:42px;max-width:none}
+.page-hero.compact .sub{margin-top:14px}
+.page-hero.compact::after{width:240px;height:120px;background:linear-gradient(120deg,transparent 64%,#fff 64% 65.6%,var(--blue) 65.6%),radial-gradient(circle at 50% 100%,#FFCC32 0 24px,#FBB034 24px 43px,#F79433 43px 62px,#F47932 62px 82px,#F15A31 82px 101px,#ED1B2F 101px 120px,transparent 120px)}
+.contact-sec{padding:56px 0 88px}
+.contact-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:stretch}
+.contact-layout .contact-info{display:flex;flex-direction:column;gap:2px;background:var(--line)}
+.contact-info .contact-tiles{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.contact-tiles div{background:var(--soft);padding:20px 22px}
+.contact-tiles .wide{grid-column:1/-1}
+.contact-tiles dt{font-size:14px;color:var(--rust);margin-bottom:6px}
+.contact-tiles dd{margin:0;font-size:16px;line-height:1.6}
+.contact-tiles dd a{white-space:nowrap}
+.contact-tiles .cin{margin-top:6px;font-size:14px;color:var(--muted)}
+.map{flex:1;width:100%;min-height:220px;border:0;display:block;background:var(--soft)}
+.contact-layout .form-box{padding:32px 36px}
+.contact-layout .sent{min-height:100%}
 
 /* Responsive */
 @media (max-width:980px){
@@ -269,9 +291,15 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
   .hero-grid{padding-top:64px}
   .proc-text{padding:32px 24px}
   .q-grid{grid-template-columns:1fr}.q-grid .wide{grid-column:auto}
-  .v2,.v3,.v4,.v5,.v6{margin-left:0}
+  .group-sec{padding:48px 0}
+  .company-grid{gap:10px;margin-top:24px}
+  .company-grid li{min-height:0;padding:16px 20px}
   .careers .txt{padding:40px 24px}
   .form-box{padding:24px}
+  .contact-layout{grid-template-columns:1fr}
+  .contact-layout .form-box{padding:24px}
+  .contact-sec{padding:32px 0 64px}
+  .page-hero.compact h1{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

@@ -47,25 +47,23 @@
 
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero compact">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Contact</li></ol></nav>
-    <p class="eyebrow">Contact</p>
     <h1>Talk to our development team.</h1>
     <p class="sub">Send a drawing, a sample or a target cost. An engineer will reply, not a sales script.</p>
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap split" style="align-items:flex-start">
+<section class="sec contact-sec">
+  <div class="wrap contact-layout">
     <div class="contact-info">
-      <h2 class="sec-h">Reach us</h2>
-      <dl>
-        <dt>Address</dt><dd>E-63, MIDC Waluj, Aurangabad 431136, Maharashtra, India<br><a href="https://www.google.com/maps/search/?api=1&amp;query=E-63+MIDC+Waluj+Aurangabad+431136" target="_blank" rel="noopener">Open in Google Maps</a></dd>
-        <dt>Phone</dt><dd><a href="tel:+912406625613">+91 240 6625613 / 4</a></dd>
-        <dt>Email</dt><dd>[sales email address]</dd>
-        <dt>CIN</dt><dd>U29130MH1988PTC046951</dd>
+      <dl class="contact-tiles">
+        <div><dt>Phone</dt><dd><a href="tel:+912406625613">+91 240 6625613</a><br><a href="tel:+912406625614">+91 240 6625614</a></dd></div>
+        <div><dt>Email</dt><dd>[sales email address]</dd></div>
+        <div class="wide"><dt>Address</dt><dd>E-63, MIDC Waluj, Aurangabad 431136, Maharashtra, India <a href="https://www.google.com/maps/search/?api=1&amp;query=E-63+MIDC+Waluj+Aurangabad+431136" target="_blank" rel="noopener">Get directions</a></dd><dd class="cin">CIN U29130MH1988PTC046951</dd></div>
       </dl>
+      <iframe class="map" title="Map of E-63, MIDC Waluj, Aurangabad" src="https://www.google.com/maps?q=E-63+MIDC+Waluj+Aurangabad+431136&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="form-box">
       <!-- Add data-endpoint="https://your-form-handler" to send submissions -->
@@ -75,7 +73,7 @@
           <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
           <div class="field"><label for="f-mail">Work email</label><input id="f-mail" name="email" type="email" autocomplete="email" required aria-describedby="f-mail-err"><span id="f-mail-err" class="err"></span></div>
           <div class="field"><label for="f-seg">Segment</label><select id="f-seg" name="segment"><option>Two-wheeler</option><option>Three-wheeler / EV</option><option>Earth-moving</option><option>Agriculture</option><option>Other</option></select></div>
-          <div class="field full"><label for="f-msg">What do you need?</label><textarea id="f-msg" name="message" rows="5" required aria-describedby="f-msg-err"></textarea><span id="f-msg-err" class="err"></span></div>
+          <div class="field full"><label for="f-msg">What do you need?</label><textarea id="f-msg" name="message" rows="5" placeholder="Part and application, drawing or sample, material, annual volume, target cost" required aria-describedby="f-msg-err"></textarea><span id="f-msg-err" class="err"></span></div>
         </div>
         <p id="form-status" class="err" role="alert"></p>
         <button class="btn btn-sun" type="submit">Send enquiry</button>
