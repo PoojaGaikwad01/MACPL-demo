@@ -15,10 +15,10 @@
 
   var SEGMENTS = [
     { id: 'all', label: 'All products' },
-    { id: 'two', label: 'Two-wheeler & EV' },
-    { id: 'three', label: 'Three-wheeler & EV' },
-    { id: 'earth', label: 'Earth-moving' },
-    { id: 'agri', label: 'Agriculture' }
+    { id: 'two', label: 'Two-wheeler & EV', note: 'Under-bracket assemblies and telescopic suspension forks for motorcycles and electric two-wheelers.', image: 'assets/images/photos/products/fork-2w-disc.jpg' },
+    { id: 'three', label: 'Three-wheeler & EV', note: 'Steering columns, front forks and suspension forks for passenger and cargo three-wheelers.', image: 'assets/images/photos/products/steering-column-cargo.jpg' },
+    { id: 'earth', label: 'Earth-moving', note: 'Bucket links, link arms, dozer blades and heavy frames for excavators and compactors.', image: 'assets/images/photos/products/bucket-link.jpg' },
+    { id: 'agri', label: 'Agriculture', note: 'Front axle assemblies for tractors.', image: 'assets/images/photos/products/front-axle.jpg' }
   ];
 
   /* image: path like 'assets/images/products/bucket-link.jpg' — leave '' for placeholder */
@@ -106,7 +106,51 @@
       panel.appendChild(media);
       panel.classList.remove('anim-in'); void panel.offsetWidth; panel.classList.add('anim-in');
     }
-    select(1, false);
+    var fromHash = function () {
+      var id = location.hash.slice(1);
+      for (var i = 0; i < PROCESSES.length; i++) if (PROCESSES[i].id === id) return i;
+      return -1;
+    };
+    var start = fromHash();
+    select(start < 0 ? 1 : start, false);
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { history.replaceState(null, '', '#' + PROCESSES[i].id); });
+    });
+    window.addEventListener('hashchange', function () { var i = fromHash(); if (i >= 0) select(i, false); });
+  }
+
+  /* ---- Home: process cards ---- */
+  var procCards = document.getElementById('proc-cards');
+  if (procCards) {
+    PROCESSES.forEach(function (p, i) {
+      var bar = el('div', { class: 'hue-bar' }); bar.style.background = HUES[i];
+      procCards.appendChild(el('a', { class: 'card', href: 'processes.html#' + p.id }, [
+        el('img', { src: p.image, alt: '', loading: 'lazy' }),
+        el('div', { class: 'meta' }, [
+          bar,
+          el('h3', { text: p.name }),
+          el('p', { text: p.body.split('. ')[0].replace(/\.?$/, '.') }),
+          el('span', { class: 'more', text: 'Explore process' })
+        ])
+      ]));
+    });
+  }
+
+  /* ---- Home: product segment cards ---- */
+  var segCards = document.getElementById('segment-cards');
+  if (segCards) {
+    SEGMENTS.filter(function (s) { return s.id !== 'all'; }).forEach(function (s) {
+      var n = PRODUCTS.filter(function (p) { return p.seg === s.id; }).length;
+      segCards.appendChild(el('a', { class: 'card', href: 'products.html?seg=' + s.id }, [
+        el('img', { src: s.image, alt: '', loading: 'lazy' }),
+        el('div', { class: 'meta' }, [
+          el('div', { class: 'seg', text: n + (n === 1 ? ' product' : ' products') }),
+          el('h3', { text: s.label }),
+          el('p', { text: s.note }),
+          el('span', { class: 'more', text: 'View products' })
+        ])
+      ]));
+    });
   }
 
   /* ---- Product filter ---- */
@@ -116,7 +160,10 @@
   if (filters && grid) {
     var pills = SEGMENTS.map(function (s) {
       var b = el('button', { class: 'pill', 'aria-pressed': 'false', text: s.label });
-      b.addEventListener('click', function () { render(s.id); });
+      b.addEventListener('click', function () {
+        render(s.id);
+        history.replaceState(null, '', s.id === 'all' ? location.pathname : '?seg=' + s.id);
+      });
       filters.appendChild(b);
       return b;
     });
@@ -139,7 +186,8 @@
       });
       count.textContent = 'Showing ' + list.length + ' of ' + PRODUCTS.length + ' products';
     }
-    render('all');
+    var q = /[?&]seg=([a-z]+)/.exec(location.search);
+    render(q && SEGMENTS.some(function (s) { return s.id === q[1]; }) ? q[1] : 'all');
   }
 
   /* ---- Enquiry form ----

@@ -23,7 +23,7 @@
 
 <header class="site-header">
   <div class="wrap" style="position:relative">
-    <a class="brand" href="#top" aria-label="Marathwada Auto Compo home">
+    <a class="brand" href="index.html" aria-label="Marathwada Auto Compo home">
       <!-- Replace this lockup with the master AITG–MACPL logo artwork (SVG) from the brand custodian -->
       <img src="assets/images/sun-mark.svg" width="46" height="40" alt="">
       <span class="brand-aitg">AITG</span>
@@ -34,28 +34,28 @@
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav id="site-nav" class="nav" aria-label="Main">
-      <a class="navlink" href="#about">About</a>
-      <a class="navlink" href="#processes">Processes</a>
-      <a class="navlink" href="#products">Products</a>
-      <a class="navlink" href="#quality">Quality</a>
-      <a class="navlink" href="#group">The Group</a>
-      <a class="navlink" href="#careers">Careers</a>
-      <a class="btn btn-sun" href="#contact">Request a quote</a>
+      <a class="navlink" href="about.html">About</a>
+      <a class="navlink" href="processes.html">Processes</a>
+      <a class="navlink" href="products.html">Products</a>
+      <a class="navlink" href="quality.html">Quality</a>
+      <a class="navlink" href="group.html">The Group</a>
+      <a class="navlink" href="careers.html">Careers</a>
+      <a class="btn btn-sun" href="contact.html">Request a quote</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
 
-<section id="top" class="hero">
+<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text">
       <p class="hero-kicker">A company of Applied Innovation &amp; Technology Group</p>
       <h1>Critical components, built to carry the load.</h1>
       <p class="sub">Steering columns, suspension forks and heavy fabricated frames for two-wheelers, three-wheelers, EVs, earth-movers and tractors. Developed fast, made at scale, and safe by design.</p>
       <div class="hero-ctas">
-        <a class="btn btn-sun" href="#products">See our products</a>
-        <a class="btn btn-line" href="#processes">How we make them</a>
+        <a class="btn btn-sun" href="products.html">See our products</a>
+        <a class="btn btn-line" href="processes.html">How we make them</a>
       </div>
     </div>
     <div class="sun-wrap" aria-hidden="true">
@@ -83,7 +83,7 @@
   </div>
 </section>
 
-<section id="about" class="sec">
+<section class="sec">
   <div class="wrap split">
     <div class="about-media">
       <div class="ph" role="img" aria-label="Robotic welding cell on the Unit 1 shop floor" style="background-image:url(assets/images/photos/sections/shop-floor.jpg)"></div>
@@ -91,158 +91,63 @@
     </div>
     <div class="about-copy">
       <h2 class="sec-h">Two engineers, one steering column, and a habit of delivering early.</h2>
-      <p class="lead">Ram Bhogale and Ajit Soundalgekar started MACPL in 1997 to make steering columns for scooters and three-wheelers. By 2000 the company was known for something rarer than capacity: developing a new part and its production line in record time.</p>
-      <p class="lead">Today we develop complex, safety-critical components to customer specification, from a single sub-assembly to complete assemblies, with in-house design, our own furnaces and SAP-run operations.</p>
+      <p class="lead">Ram Bhogale and Ajit Soundalgekar started MACPL in 1997 to make steering columns for scooters and three-wheelers. Today we develop complex, safety-critical components to customer specification, from a single sub-assembly to complete assemblies.</p>
       <div class="people-mini">
-        <div><b>Ram Bhogale</b><span>Chairman</span></div>
-        <div><b>Ajit Soundalgekar</b><span>Managing Director</span></div>
-        <a href="#leadership">Meet the leadership</a>
+        <a class="btn btn-sun" href="about.html">Read our story</a>
+        <a href="about.html#leadership">Meet the leadership</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="processes" class="sec bg-soft">
+<section class="sec bg-soft">
   <div class="wrap">
     <div class="sec-top">
       <h2 class="sec-h" style="max-width:16ch">Every critical process, under our own roof.</h2>
       <p>Our parts carry high safety parameters, so we control the steps that decide strength: cutting, bending, joining, heat treatment, casting and finish.</p>
     </div>
-    <div class="proc">
-      <div id="proc-tabs" class="proc-tabs" role="tablist" aria-label="Processes" aria-orientation="vertical"></div>
-      <div id="proc-panel" class="proc-body" role="tabpanel" tabindex="0"></div>
-    </div>
+    <div id="proc-cards" class="cards"></div>
   </div>
 </section>
 
-<section id="products" class="sec">
+<section class="sec">
   <div class="wrap">
-    <h2 class="sec-h" style="max-width:20ch">Parts that steer, suspend and hold machines together.</h2>
-    <div id="filters" class="filters" role="group" aria-label="Filter by segment"></div>
-    <p id="product-count" class="count" aria-live="polite"></p>
-    <div id="product-grid" class="grid-products"></div>
-    <div class="cta-band">
-      <p>Have a drawing or a sample? We develop to your specification.</p>
-      <a class="btn btn-sun" href="#contact">Share your requirement</a>
+    <div class="sec-top">
+      <h2 class="sec-h" style="max-width:20ch">Parts that steer, suspend and hold machines together.</h2>
+      <p>Fifteen parts across four segments, each developed to an OEM's specification.</p>
     </div>
+    <div id="segment-cards" class="cards"></div>
+    <a class="sec-link" href="products.html">View the full product range</a>
   </div>
 </section>
 
-<section id="quality" class="sec dark">
+<section class="sec dark">
   <div class="wrap split" style="align-items:flex-start">
     <div style="flex:1 1 440px">
       <h2 class="sec-h" style="max-width:16ch">Quality is a system, not an inspection.</h2>
-      <p class="lead" style="margin-top:28px">For over a decade we have run our shop floor on Total Productive Maintenance. It is measured on six parameters, every day: product, quality, cost, delivery, safety and morale.</p>
-      <blockquote class="quote">
-        <p>“We strive for customer satisfaction through consistency in product quality, using equipment and processes capable of delivering the required productivity.”</p>
-        <footer>From the MACPL quality policy</footer>
-      </blockquote>
+      <p class="lead" style="margin-top:28px">For over a decade we have run our shop floor on Total Productive Maintenance, measured every day on product, quality, cost, delivery, safety and morale.</p>
+      <a class="sec-link" href="quality.html">How we assure quality</a>
     </div>
     <div class="q-grid">
       <div><h3>TPM on the shop floor</h3><p>Planned maintenance keeps equipment capable and output predictable.</p></div>
       <div><h3>In-house design</h3><p>Fixtures, tooling and furnaces designed by our own engineers.</p></div>
-      <div><h3>SAP-enabled operations</h3><p>One flow of information from order to dispatch.</p></div>
-      <div><h3>USD 10 million in assets</h3><p>Invested in fixed plant and machinery across three units.</p></div>
-      <div class="wide"><h3>Certifications</h3><p>[Add IATF 16949 / ISO certificates and download links]</p></div>
     </div>
   </div>
 </section>
 
-<section id="leadership" class="sec">
-  <div class="wrap">
-    <h2 class="sec-h">The people accountable for every part.</h2>
-    <div class="people">
-      <div class="person">
-        <div class="ph avatar" role="img" aria-label="Portrait of Ram Bhogale (placeholder)"></div>
-        <h3>Ram Bhogale</h3><p class="role">Chairman</p>
-        <p class="bio">Mechanical engineer with 38 years in business. Twice elected President of the Maharashtra Chamber of Commerce, Industry and Agriculture.</p>
-      </div>
-      <div class="person">
-        <div class="ph avatar" role="img" aria-label="Portrait of Ajit Soundalgekar (placeholder)"></div>
-        <h3>Ajit Soundalgekar</h3><p class="role">Managing Director</p>
-        <p class="bio">Mechanical engineer with over 33 years in tool and die design and auto-component manufacturing. Leads development of our most complex parts.</p>
-      </div>
-      <div class="plant">
-        <h3>Plant leadership</h3>
-        <ul>
-          <li>Anant Adhav, Plant Head, Unit 1</li>
-          <li>Vivek Deshpande, Plant Head, Unit 2</li>
-          <li>Avinash Kude, Plant Head, Unit 3</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="group" class="sec bg-soft">
-  <div class="wrap split" style="align-items:flex-start">
-    <div style="flex:1 1 420px">
-      <h2 class="sec-h" style="max-width:16ch">Part of a group that started in 1968.</h2>
-      <p class="lead" style="margin-top:24px">MACPL belongs to the Applied Innovation &amp; Technology Group, which shares HR, IT, finance and best practice across its engineering companies. The six bands of our rising sun stand for the values we hold in common.</p>
-      <ul class="group-list">
-        <li><a href="http://aitg.co/">Applied Innovation &amp; Technology Group LLP</a></li>
-        <li><a href="http://www.uacpl-aitg.co/">Umasons Autocompo Pvt. Ltd.</a></li>
-        <li><a href="http://bhogaleauto.com/">Bhogale Automotive Pvt. Ltd.</a></li>
-        <li><a href="http://www.precifabengineers.com/">Preci Fab Engineers Pvt. Ltd.</a></li>
-        <li>Technocraft Toolings</li>
-        <li>iInvent Labs Pvt. Ltd.</li>
-      </ul>
-    </div>
-    <div class="values">
-      <div class="value v1"><b>Integrity</b><span>Say what you believe and do what you say.</span></div>
-      <div class="value v2"><b>Commitment</b><span>Complete devotion to work and responsibility.</span></div>
-      <div class="value v3"><b>Compassion</b><span>Kind concern for all human beings.</span></div>
-      <div class="value v4"><b>Passion</b><span>The urge to do more than expected.</span></div>
-      <div class="value v5"><b>Innovation</b><span>Generating and exploring novel ideas.</span></div>
-      <div class="value v6"><b>Proud of roots</b><span>Proud of who we are and where we belong.</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="careers">
+<section class="sec">
   <div class="wrap">
     <div class="careers">
       <div class="txt">
         <h2>Build components that keep people safe.</h2>
         <p>We hire engineers, welders, quality inspectors and operators who like hard problems and clear accountability.</p>
-        <a class="btn btn-sun" href="#contact">See open roles</a>
+        <a class="btn btn-sun" href="careers.html">Careers at MACPL</a>
       </div>
       <div class="ph" role="img" aria-label="Production team at Unit 2" style="background-image:url(assets/images/photos/sections/team.jpg)"></div>
     </div>
-  </div>
-</section>
-
-<section id="contact" class="sec">
-  <div class="wrap split" style="align-items:flex-start">
-    <div class="contact-info">
-      <h2 class="sec-h">Talk to our development team.</h2>
-      <p class="lead" style="margin-top:20px">Send a drawing, a sample or a target cost. An engineer will reply, not a sales script.</p>
-      <dl>
-        <dt>Address</dt><dd>E-63, MIDC Waluj, Aurangabad 431136, Maharashtra, India</dd>
-        <dt>Phone</dt><dd><a href="tel:+912406625613">+91 240 6625613 / 4</a></dd>
-        <dt>Email</dt><dd>[sales email address]</dd>
-        <dt>CIN</dt><dd>U29130MH1988PTC046951</dd>
-      </dl>
-    </div>
-    <div class="form-box">
-      <!-- Add data-endpoint="https://your-form-handler" to send submissions -->
-      <form id="enquiry" novalidate>
-        <div class="form-grid">
-          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err"><span id="f-name-err" class="err"></span></div>
-          <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
-          <div class="field"><label for="f-mail">Work email</label><input id="f-mail" name="email" type="email" autocomplete="email" required aria-describedby="f-mail-err"><span id="f-mail-err" class="err"></span></div>
-          <div class="field"><label for="f-seg">Segment</label><select id="f-seg" name="segment"><option>Two-wheeler</option><option>Three-wheeler / EV</option><option>Earth-moving</option><option>Agriculture</option><option>Other</option></select></div>
-          <div class="field full"><label for="f-msg">What do you need?</label><textarea id="f-msg" name="message" rows="5" required aria-describedby="f-msg-err"></textarea><span id="f-msg-err" class="err"></span></div>
-        </div>
-        <p id="form-status" class="err" role="alert"></p>
-        <button class="btn btn-sun" type="submit">Send enquiry</button>
-      </form>
-      <div id="sent" class="sent" hidden>
-        <div class="hue-bar" style="background:#F79433"></div>
-        <h3 tabindex="-1">Enquiry sent</h3>
-        <p>Thank you. Our development team will contact you shortly.</p>
-        <button id="send-another" class="pill" type="button" style="align-self:flex-start;background:#004282;color:#fff;margin-top:12px">Send another enquiry</button>
-      </div>
+    <div class="cta-band">
+      <p>Have a drawing or a sample? We develop to your specification.</p>
+      <a class="btn btn-sun" href="contact.html">Share your requirement</a>
     </div>
   </div>
 </section>
@@ -253,8 +158,8 @@
   <div class="brand-bar"></div>
   <div class="wrap foot">
     <div class="foot-about"><b>Marathwada Auto Compo Pvt. Ltd.</b><p>Durable, critical auto components. A company of Applied Innovation &amp; Technology Group.</p></div>
-    <div class="col"><strong>Company</strong><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#careers">Careers</a></div>
-    <div class="col"><strong>Capability</strong><a href="#processes">Processes</a><a href="#products">Products</a><a href="#quality">Quality</a></div>
+    <div class="col"><strong>Company</strong><a href="about.html">About</a><a href="about.html#leadership">Leadership</a><a href="group.html">The Group</a><a href="careers.html">Careers</a></div>
+    <div class="col"><strong>Capability</strong><a href="processes.html">Processes</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="contact.html">Contact</a></div>
     <div class="col"><strong>Documents</strong><a href="https://www.macpl-aitg.co/images/financials/MACPL-Annual-Return-2021-2022.pdf">Annual return 2021–22</a><a href="https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf">CSR policy</a></div>
   </div>
   <div class="wrap legal"><span>© <span id="year">2026</span> Marathwada Auto Compo Pvt. Ltd.</span><span>CIN U29130MH1988PTC046951</span></div>
