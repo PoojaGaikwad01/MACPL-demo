@@ -22,11 +22,11 @@ The header and footer are repeated in every page (no build step). When you chang
 - `*.html` — page markup and SEO meta (each page has its own title and description; schema.org data on Home and Contact)
 - `assets/css/style.css` — brand tokens (top of file) and all styles
 - `assets/js/main.js` — content data (processes, segments, products), mobile menu, home cards, process tabs, product filter, enquiry form
-- `assets/images/` — logo mark, AI stand-in photos (`photos/`) and SVG illustrations
+- `assets/images/` — AITG–MACPL logo (`macpl-logo.png`, header and footer), sun mark (favicon), AI stand-in photos (`photos/`) and SVG illustrations
 - `tools/gen_images.py` — regenerates the stand-in SVG illustrations
 
 ## Before launch
-1. **Logo** — replace the header lockup with master AITG–MACPL artwork (brand manual p.12/20: never redraw the logo).
+1. **Logo** — the header and footer use the AITG–MACPL lockup `assets/images/macpl-logo.png` (419×58 px, on brand blue; the header is the same blue so the logo sits on it seamlessly). It is small for high-density screens: replace it with high-res or SVG master artwork at the same path (brand manual p.12/20: never redraw the logo).
 2. **Font** — the manual specifies Sansation. Add its licensed webfont with `@font-face` in style.css; it is already first in `--head`. Saira is the fallback.
 3. **Photos** — products, processes, the About shop floor and the Careers team use AI-generated stand-in photos (`assets/images/photos/`, made with Figma AI). They are not MACPL's real parts or plants: replace them with real photography before launch (products & processes via `image:` paths in `main.js`, About/Careers via the inline `background-image` in `index.html`, `about.html` and `careers.html`). Earlier SVG illustrations are kept in `assets/images/processes|products|sections/` (regenerate with `python tools/gen_images.py .`). The two founder portraits are still placeholders and need real photos.
 4. **Email** — replace `[sales email address]` in `contact.html` and `[careers email address]` in `careers.html`.
