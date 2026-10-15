@@ -9,10 +9,11 @@
 <meta property="og:title" content="Marathwada Auto Compo Pvt. Ltd.">
 <meta property="og:description" content="Critical components, built to carry the load. A company of Applied Innovation &amp; Technology Group.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="assets/images/sun-mark.svg">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preload" href="assets/fonts/sansation-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Marathwada Auto Compo Pvt. Ltd.","alternateName":"MACPL","url":"https://www.macpl-aitg.co/","telephone":"+91-240-6625613","parentOrganization":{"@type":"Organization","name":"Applied Innovation & Technology Group"},"address":{"@type":"PostalAddress","streetAddress":"E-63, MIDC Waluj","addressLocality":"Aurangabad","postalCode":"431136","addressRegion":"Maharashtra","addressCountry":"IN"}}
@@ -22,23 +23,34 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <div class="wrap" style="position:relative">
-    <a class="brand" href="index.html" aria-label="Marathwada Auto Compo home">
-      <!-- AITG–MACPL logo: replace assets/images/macpl-logo.png with high-res or SVG master artwork from the brand custodian -->
-      <img class="brand-logo" src="assets/images/macpl-logo.png" width="419" height="58" alt="">
-    </a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
+  <div class="masthead">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <!-- AITG–MACPL logo: replace with the master artwork (SVG) from the brand custodian; never redraw it (manual p.12) -->
+        <img class="brand-logo" src="assets/images/macpl-logo.png" width="419" height="58" alt="AITG Marathwada Auto Compo Pvt Ltd, home">
+      </a>
+      <form class="search" action="search.html" role="search"><label class="sr" for="q">Search the site</label><input id="q" name="q" type="search" placeholder="Search"><button type="submit" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button></form>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="wrap">
     <nav id="site-nav" class="nav" aria-label="Main">
+      <a class="navlink" href="index.html" aria-current="page">Home</a>
       <a class="navlink" href="about.html">About</a>
       <a class="navlink" href="processes.html">Processes</a>
       <a class="navlink" href="products.html">Products</a>
       <a class="navlink" href="quality.html">Quality</a>
+      <a class="navlink" href="news.html">News</a>
       <a class="navlink" href="group.html">The Group</a>
       <a class="navlink" href="careers.html">Careers</a>
-      <a class="btn btn-sun" href="contact.html">Request a quote</a>
+      <a class="navlink" href="contact.html">Contact</a>
+      <a class="btn btn-sun nav-cta" href="contact.html">Request a quote</a>
+      <form class="search" action="search.html" role="search"><label class="sr" for="q-m">Search the site</label><input id="q-m" name="q" type="search" placeholder="Search"><button type="submit" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button></form>
     </nav>
+    </div>
   </div>
 </header>
 
@@ -48,27 +60,18 @@
   <div class="wrap hero-grid">
     <div class="hero-text">
       <p class="hero-kicker">A company of Applied Innovation &amp; Technology Group</p>
-      <h1>Critical components, built to carry the load.</h1>
-      <p class="sub">Steering columns, suspension forks and heavy fabricated frames for two-wheelers, three-wheelers, EVs, earth-movers and tractors. Developed fast, made at scale, and safe by design.</p>
+      <h1>Building capacities, <em>building assets.</em></h1>
+      <p class="sub">From part manufacturing to complete assemblies, we have mastered mass manufacturing: steering columns, suspension forks and heavy fabricated frames for two-wheelers, three-wheelers, EVs, earth-movers and tractors.</p>
       <div class="hero-ctas">
         <a class="btn btn-sun" href="products.html">See our products</a>
         <a class="btn btn-line" href="processes.html">How we make them</a>
       </div>
     </div>
-    <div class="sun-wrap" aria-hidden="true">
-      <svg viewBox="0 0 600 330">
-        <defs><clipPath id="hz"><rect width="600" height="330"/></clipPath></defs>
-        <g clip-path="url(#hz)">
-          <circle class="band" style="animation-delay:.05s" cx="300" cy="330" r="300" fill="#ED1B2F"/>
-          <circle class="band" style="animation-delay:.15s" cx="300" cy="330" r="252" fill="#F15A31"/>
-          <circle class="band" style="animation-delay:.25s" cx="300" cy="330" r="204" fill="#F47932"/>
-          <circle class="band" style="animation-delay:.35s" cx="300" cy="330" r="156" fill="#F79433"/>
-          <circle class="band" style="animation-delay:.45s" cx="300" cy="330" r="108" fill="#FBB034"/>
-          <circle class="band" style="animation-delay:.55s" cx="300" cy="330" r="60" fill="#FFCC32"/>
-          <g class="cut"><polygon points="345,330 535,0 620,0 620,330" fill="#004282"/><line x1="345" y1="330" x2="535" y2="0" stroke="#fff" stroke-width="10"/></g>
-        </g>
-      </svg>
-    </div>
+    <figure class="hero-media">
+      <!-- Stand-in photo: replace with a real MACPL shop-floor photo -->
+      <img src="assets/images/photos/processes/welding.jpg" width="1200" height="896" alt="Robotic welding cell joining a steel frame">
+      <figcaption>Robotic welding, Unit 1</figcaption>
+    </figure>
   </div>
   <div class="facts">
     <div class="wrap">
@@ -80,68 +83,43 @@
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap split">
-    <div class="about-media">
-      <div class="ph" role="img" aria-label="Robotic welding cell on the Unit 1 shop floor" style="background-image:url(assets/images/photos/sections/shop-floor.jpg)"></div>
-      <div class="about-badge"><b>~250</b><span>trained people on the shop floor</span></div>
+<section class="sec-tight dark" aria-labelledby="h-vision">
+  <div class="wrap vision-row">
+    <div>
+      <h2 id="h-vision" class="eyebrow">Our vision</h2>
+      <p class="vision sm">
+        <span class="va">To be a well respected</span>
+        <span class="vb">Innovative Group</span>
+        <span class="va">that is most preferred as a</span>
+        <span class="vc"><i aria-hidden="true">‹‹‹‹</i>partner in progress<i aria-hidden="true">››››</i></span>
+        <span class="vd"><span aria-hidden="true">Gl<svg class="globe" viewBox="0 0 24 24"><defs><clipPath id="globe-a"><circle cx="12" cy="12" r="11"/></clipPath></defs><g clip-path="url(#globe-a)"><rect width="24" height="4" fill="#ED1B2F"/><rect y="4.6" width="24" height="3.2" fill="#F15A31"/><rect y="8.4" width="24" height="3.2" fill="#F47932"/><rect y="12.2" width="24" height="3.2" fill="#F79433"/><rect y="16" width="24" height="3.2" fill="#FBB034"/><rect y="19.8" width="24" height="4.2" fill="#FFCC32"/></g></svg>bally</span><span class="sr">Globally</span></span>
+      </p>
     </div>
-    <div class="about-copy">
-      <h2 class="sec-h">Two engineers, one steering column, and a habit of delivering early.</h2>
-      <p class="lead">Ram Bhogale and Ajit Soundalgekar started MACPL in 1997 to make steering columns for scooters and three-wheelers. Today we develop complex, safety-critical components to customer specification, from a single sub-assembly to complete assemblies.</p>
-      <div class="people-mini">
-        <a class="btn btn-sun" href="about.html">Read our story</a>
-        <a href="about.html#leadership">Meet the leadership</a>
-      </div>
+    <div class="vision-side">
+      <p class="lead">At Marathwada Auto Compo, we manufacture auto components required at large scale. Our expertise lies in fast development of a component and its manufacturing line to the customer’s specifications. Since 1997, with around 250 trained people across three plants.</p>
+      <p class="tagline-band">Honest Business With Honest Relationships</p>
+      <p class="links"><a class="btn btn-sun" href="about.html">Read our story</a><a class="sec-link" href="about.html#values">Our six values</a></p>
     </div>
   </div>
 </section>
 
-<section class="sec bg-soft">
+<section class="sec-tight bg-soft">
   <div class="wrap">
     <div class="sec-top">
-      <h2 class="sec-h" style="max-width:16ch">Every critical process, under our own roof.</h2>
-      <p>Our parts carry high safety parameters, so we control the steps that decide strength: cutting, bending, joining, heat treatment, casting and finish.</p>
+      <h2 class="sec-h">Every critical process, under our own roof.</h2>
+      <a class="sec-link" href="processes.html">All processes</a>
     </div>
-    <div id="proc-cards" class="cards"></div>
+    <div id="proc-cards" class="cards compact"></div>
   </div>
 </section>
 
-<section class="sec">
+<section class="sec-tight">
   <div class="wrap">
     <div class="sec-top">
-      <h2 class="sec-h" style="max-width:20ch">Parts that steer, suspend and hold machines together.</h2>
-      <p>Fifteen parts across four segments, each developed to an OEM's specification.</p>
+      <h2 class="sec-h">Parts that steer, suspend and hold machines together.</h2>
+      <a class="sec-link" href="products.html">View the full product range</a>
     </div>
-    <div id="segment-cards" class="cards"></div>
-    <a class="sec-link" href="products.html">View the full product range</a>
-  </div>
-</section>
-
-<section class="sec dark">
-  <div class="wrap split" style="align-items:flex-start">
-    <div style="flex:1 1 440px">
-      <h2 class="sec-h" style="max-width:16ch">Quality is a system, not an inspection.</h2>
-      <p class="lead" style="margin-top:28px">For over a decade we have run our shop floor on Total Productive Maintenance, measured every day on product, quality, cost, delivery, safety and morale.</p>
-      <a class="sec-link" href="quality.html">How we assure quality</a>
-    </div>
-    <div class="q-grid">
-      <div><h3>TPM on the shop floor</h3><p>Planned maintenance keeps equipment capable and output predictable.</p></div>
-      <div><h3>In-house design</h3><p>Fixtures, tooling and furnaces designed by our own engineers.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="careers">
-      <div class="txt">
-        <h2>Build components that keep people safe.</h2>
-        <p>We hire engineers, welders, quality inspectors and operators who like hard problems and clear accountability.</p>
-        <a class="btn btn-sun" href="careers.html">Careers at MACPL</a>
-      </div>
-      <div class="ph" role="img" aria-label="Production team at Unit 2" style="background-image:url(assets/images/photos/sections/team.jpg)"></div>
-    </div>
+    <div id="segment-cards" class="cards compact"></div>
     <div class="cta-band">
       <p>Have a drawing or a sample? We develop to your specification.</p>
       <a class="btn btn-sun" href="contact.html">Share your requirement</a>
@@ -152,27 +130,34 @@
 </main>
 
 <footer class="site-footer">
-  <div class="brand-bar"></div>
+  <div class="foot-strip">
+    <div class="wrap">
+      <a class="fs-contact" href="contact.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>Contact us</a>
+      <a class="fs-map" href="sitemap.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="5"/><rect x="2" y="16" width="6" height="5"/><rect x="16" y="16" width="6" height="5"/><path d="M12 8v4M5 16v-4h14v4"/></svg>Sitemap</a>
+      <p class="fs-tag">Honest Business With Honest Relationships</p>
+      <!-- "Follow us on" (manual p.35): add official social profile links here once confirmed -->
+    </div>
+  </div>
   <div class="wrap foot">
     <div class="foot-about">
-      <a class="brand foot-brand" href="index.html" aria-label="Marathwada Auto Compo home">
-        <img class="brand-logo" src="assets/images/macpl-logo.png" width="419" height="58" alt="">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/images/macpl-logo.png" width="419" height="58" alt="AITG Marathwada Auto Compo Pvt Ltd, home">
       </a>
-      <p>Durable, critical auto components. A company of Applied Innovation &amp; Technology Group.</p>
+      <p class="mr" lang="mr">मराठवाडा ऑटो कॉम्पो प्रायव्हेट लिमिटेड</p>
+      <p>Customized, durable and critical auto components. A company of Applied Innovation &amp; Technology Group.</p>
       <ul class="foot-contact">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>E-63, MIDC Waluj, Aurangabad 431136, Maharashtra, India</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614">4</a></span></li>
+        <li><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>E-63, MIDC Waluj, Aurangabad 431136, Maharashtra, India</span></li>
+        <li><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span><span><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614">4</a></span></li>
       </ul>
-      <a class="btn btn-sun" href="contact.html">Request a quote</a>
     </div>
-    <div class="col"><h2>Company</h2><a href="about.html">About</a><a href="about.html#leadership">Leadership</a><a href="group.html">The Group</a><a href="careers.html">Careers</a></div>
+    <div class="col"><h2>Company</h2><a href="about.html">About</a><a href="about.html#management">Management</a><a href="group.html">The Group</a><a href="news.html">News</a><a href="careers.html">Careers</a></div>
     <div class="col"><h2>Capability</h2><a href="processes.html">Processes</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="contact.html">Contact</a></div>
-    <div class="col"><h2>Documents</h2><a href="https://www.macpl-aitg.co/images/financials/MACPL-Annual-Return-2021-2022.pdf">Annual return 2021–22 <em>PDF</em></a><a href="https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf">CSR policy <em>PDF</em></a></div>
+    <div class="col"><h2>Documents</h2><a href="https://www.macpl-aitg.co/images/financials/MACPL-Annual-Return-2021-2022.pdf">Annual return 2021–22 <em>PDF</em></a><a href="https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf">CSR policy <em>PDF</em></a><a href="sitemap.html">Sitemap</a></div>
   </div>
   <div class="wrap legal">
     <span>© <span id="year">2026</span> Marathwada Auto Compo Pvt. Ltd. All rights reserved.</span>
     <span>CIN U29130MH1988PTC046951</span>
-    <a class="to-top" href="#">Back to top <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+    <a class="to-top" href="#" aria-label="Back to top" title="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
   </div>
 </footer>
 
