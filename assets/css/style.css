@@ -35,27 +35,29 @@ h1,h2,h3{font-family:var(--head);font-weight:700;margin:0}
 
 /* Header: blue masthead (logo, search) + white nav bar (manual p.35, current site) */
 .site-header{position:sticky;top:-96px;z-index:50;background:#fff;box-shadow:0 1px 0 var(--line),0 6px 18px rgba(0,0,0,.06)}
-.masthead{background:var(--blue)}
+.masthead{background:#fff;border-bottom:1px solid var(--line)}
 .masthead .wrap{height:96px;display:flex;align-items:center;gap:24px}
 .brand{display:block;flex:0 1 419px;min-width:0;line-height:0;text-decoration:none}
 /* 58px tall = above the 55px digital minimum (manual p.15) */
 .brand-logo{display:block;width:100%;height:auto}
 .search{display:flex;flex:none;margin-left:auto}
-.search input{width:190px;min-height:40px;border:0;padding:8px 12px;font-size:15px}
+.search input{width:190px;min-height:40px;border:1px solid #bcbec0;border-right:0;padding:8px 12px;font-size:15px}
 .search button{display:inline-flex;align-items:center;justify-content:center;width:44px;min-height:40px;border:0;background:var(--o3);color:var(--on-sun);cursor:pointer}
 .search button:hover{background:var(--o4)}
+/* menu bar: brand blue, orange line above the page banner */
+.navbar{background:var(--blue);border-bottom:3px solid var(--o3)}
 .navbar .wrap{display:flex}
 .nav{display:flex;align-items:center;flex:1;gap:4px}
 .nav .search{display:none}
-.nav a.navlink{position:relative;display:flex;align-items:center;min-height:60px;padding:0 13px;font-family:var(--head);font-weight:700;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color .2s}
+.nav a.navlink{position:relative;display:flex;align-items:center;min-height:60px;padding:0 13px;font-family:var(--head);font-weight:700;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s}
 .nav a.navlink:first-child{margin-left:-13px}
 /* slanted orange underline: slides in on hover, stays on the current page */
 .nav a.navlink::after{content:"";position:absolute;left:13px;right:13px;bottom:12px;height:4px;background:linear-gradient(90deg,var(--o2),var(--o4));transform:scaleX(0) skewX(-30deg);transform-origin:left;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
-.nav a.navlink:hover{color:var(--blue)}
+.nav a.navlink:hover{color:#fff}
 .nav a.navlink:hover::after,.nav a.navlink[aria-current="page"]::after{transform:scaleX(1) skewX(-30deg)}
-.nav a.navlink[aria-current="page"]{color:var(--blue)}
+.nav a.navlink[aria-current="page"]{color:#fff}
 .nav .nav-cta{margin-left:auto;min-height:42px;font-size:15px}
-.menu-btn{display:none;flex:none;margin-left:auto;background:none;border:0;width:48px;height:48px;cursor:pointer;color:#fff}
+.menu-btn{display:none;flex:none;margin-left:auto;background:none;border:0;width:48px;height:48px;cursor:pointer;color:var(--blue)}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-family:var(--head);font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)}
@@ -259,7 +261,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
 .foot-strip .fs-tag{margin:0;justify-self:end;font-size:15px;font-family:var(--head);font-weight:700;color:#fff}
 .foot,.legal{position:relative;z-index:1}
 .foot{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(3,minmax(0,1fr));gap:32px;padding-top:32px;padding-bottom:24px;font-size:14px}
-.foot-about .brand{width:280px;max-width:100%}
+.foot-about .brand{width:300px;max-width:100%;padding:12px 16px;background:#fff}
 .foot-about .mr{margin:10px 0 0;font-size:14px;color:#fff}
 .foot-about p{margin:8px 0 0;line-height:1.5;max-width:46ch}
 .foot-contact{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;line-height:1.4}
@@ -279,7 +281,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
 .foot .btn-sun,.foot .btn-sun:hover{color:#0a2540}
 .legal{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;padding-bottom:14px;font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px}
 .legal span:first-child{margin-right:auto}
-.to-top{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--o3);color:var(--on-sun);text-decoration:none;transition:background .2s,transform .2s}
+.to-top{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--o3);color:var(--on-sun);text-decoration:none;transition:background .2s,transform .2s}
 .to-top:hover{background:var(--o4);color:var(--on-sun);transform:translateY(-2px)}
 
 /* Page hero (inner pages): blue with orange crescent and curved lower edge (manual p.24, posters p.46–48) */
@@ -416,14 +418,15 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#b3261e}
   .menu-btn{display:inline-flex;align-items:center;justify-content:center}
   .navbar{position:absolute;left:0;right:0;top:100%}
   .navbar .wrap{display:block}
-  .nav{display:none;flex-direction:column;background:#fff;padding:4px 0 20px;box-shadow:0 12px 24px rgba(0,0,0,.12);margin:0 -32px;padding-left:32px;padding-right:32px}
+  .navbar{background:none;border:0}
+  .nav{display:none;flex-direction:column;align-items:stretch;background:var(--blue);border-bottom:3px solid var(--o3);padding:4px 0 20px;box-shadow:0 12px 24px rgba(0,0,0,.12);margin:0 -32px;padding-left:32px;padding-right:32px}
   .nav.open{display:flex}
-  .nav a.navlink{min-height:52px;padding:0;border-bottom:1px solid var(--line)}
+  .nav a.navlink{min-height:52px;padding:0;border-bottom:1px solid rgba(255,255,255,.18)}
   .nav a.navlink:first-child{margin-left:0}
   .nav a.navlink::after{left:0;right:auto;top:14px;bottom:14px;width:4px;height:auto;margin-left:-14px;transform:scaleY(0);transform-origin:top}
   .nav a.navlink:hover::after,.nav a.navlink[aria-current="page"]::after{transform:none}
   .nav .nav-cta{margin:16px 0 0;align-self:flex-start}
-  .nav .search{display:flex;margin-top:16px}
+  .nav .search{display:flex;margin:16px 0 0}
   .nav .search input{flex:1;width:auto;border:1px solid #bcbec0}
   .foot{grid-template-columns:repeat(3,minmax(0,1fr))}
   .foot-about{grid-column:1/-1}

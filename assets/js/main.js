@@ -51,6 +51,26 @@
     return n;
   }
 
+  /* ---- Opening a page on a given tab, without #anchors or ?query in the address ----
+     A link with data-open="bend" (Home cards, search results) remembers the tab for
+     the next page; that page reads it once with takeOpen(). */
+  function takeOpen() {
+    try { var v = sessionStorage.getItem('macpl-open'); sessionStorage.removeItem('macpl-open'); return v; } catch (e) { return null; }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-open]');
+    if (a) try { sessionStorage.setItem('macpl-open', a.getAttribute('data-open')); } catch (err) { /* opens on the default tab */ }
+  });
+
+  /* ---- Skip link and back to top: scroll without adding # to the address ---- */
+  var skip = document.querySelector('.skip');
+  if (skip) skip.addEventListener('click', function (e) {
+    var main = document.getElementById('main'); if (!main) return;
+    e.preventDefault(); main.setAttribute('tabindex', '-1'); main.focus(); main.scrollIntoView();
+  });
+  var toTop = document.querySelector('.to-top');
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
   /* ---- Mobile menu ---- */
   var menuBtn = document.querySelector('.menu-btn');
   var nav = document.getElementById('site-nav');
@@ -106,17 +126,10 @@
       panel.appendChild(media);
       panel.classList.remove('anim-in'); void panel.offsetWidth; panel.classList.add('anim-in');
     }
-    var fromHash = function () {
-      var id = location.hash.slice(1);
-      for (var i = 0; i < PROCESSES.length; i++) if (PROCESSES[i].id === id) return i;
-      return -1;
-    };
-    var start = fromHash();
-    select(start < 0 ? 1 : start, false);
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { history.replaceState(null, '', '#' + PROCESSES[i].id); });
-    });
-    window.addEventListener('hashchange', function () { var i = fromHash(); if (i >= 0) select(i, false); });
+    var wanted = takeOpen();
+    var start = 1;
+    for (var k = 0; k < PROCESSES.length; k++) if (PROCESSES[k].id === wanted) start = k;
+    select(start, false);
   }
 
   /* ---- Home: process cards ---- */
@@ -124,7 +137,7 @@
   if (procCards) {
     PROCESSES.forEach(function (p, i) {
       var bar = el('div', { class: 'hue-bar' }); bar.style.background = HUES[i];
-      procCards.appendChild(el('a', { class: 'card', href: 'processes.html#' + p.id }, [
+      procCards.appendChild(el('a', { class: 'card', href: 'processes.html', 'data-open': p.id }, [
         el('img', { src: p.image, alt: '', loading: 'lazy' }),
         el('div', { class: 'meta' }, [
           bar,
@@ -141,7 +154,7 @@
   if (segCards) {
     SEGMENTS.filter(function (s) { return s.id !== 'all'; }).forEach(function (s) {
       var n = PRODUCTS.filter(function (p) { return p.seg === s.id; }).length;
-      segCards.appendChild(el('a', { class: 'card', href: 'products.html?seg=' + s.id }, [
+      segCards.appendChild(el('a', { class: 'card', href: 'products.html', 'data-open': s.id }, [
         el('img', { src: s.image, alt: '', loading: 'lazy' }),
         el('div', { class: 'meta' }, [
           el('div', { class: 'seg', text: n + (n === 1 ? ' product' : ' products') }),
@@ -162,7 +175,6 @@
       var b = el('button', { class: 'tab', 'aria-pressed': 'false', text: s.label });
       b.addEventListener('click', function () {
         render(s.id);
-        history.replaceState(null, '', s.id === 'all' ? location.pathname : '?seg=' + s.id);
       });
       filters.appendChild(b);
       return b;
@@ -192,8 +204,8 @@
       });
       count.textContent = 'Showing ' + list.length + ' of ' + PRODUCTS.length + ' products';
     }
-    var q = /[?&]seg=([a-z]+)/.exec(location.search);
-    render(q && SEGMENTS.some(function (s) { return s.id === q[1]; }) ? q[1] : 'all');
+    var wantedSeg = takeOpen();
+    render(SEGMENTS.some(function (s) { return s.id === wantedSeg; }) ? wantedSeg : 'all');
   }
 
   /* ---- Forms (enquiry, job application) ----
@@ -227,39 +239,31 @@
     });
   });
 
-  /* ---- About: the sub-menu shows one section at a time (about.html#values etc.) ---- */
+  /* ---- About: the tab bar shows one section at a time ---- */
   var tabbed = document.querySelector('.tabbed');
-  var subLinks = document.querySelectorAll('.subnav a');
-  if (tabbed && subLinks.length) {
+  var aboutTabs = document.querySelectorAll('.tabbar [data-tab]');
+  if (tabbed && aboutTabs.length) {
     var panels = Array.prototype.slice.call(tabbed.children);
     var show = function (id) {
       if (!panels.some(function (p) { return p.dataset.tab === id; })) id = panels[0].dataset.tab;
       panels.forEach(function (p) { p.classList.toggle('on', p.dataset.tab === id); });
-      Array.prototype.forEach.call(subLinks, function (a) {
-        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-      });
+      Array.prototype.forEach.call(aboutTabs, function (b) { b.setAttribute('aria-selected', b.dataset.tab === id ? 'true' : 'false'); });
     };
-    Array.prototype.forEach.call(subLinks, function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var id = a.getAttribute('href').slice(1);
-        history.replaceState(null, '', '#' + id);
-        show(id);
-      });
+    Array.prototype.forEach.call(aboutTabs, function (b) {
+      b.addEventListener('click', function () { show(b.dataset.tab); });
     });
-    window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
-    show(location.hash.slice(1));
+    show(takeOpen());
   }
 
   /* ---- Site search (search.html?q=...) ---- */
   var PAGES = [
     { url: 'index.html', title: 'Home', text: 'Building capacities, building assets. Mass manufacturing from part manufacturing to complete assemblies. Customized, durable and critical auto components.' },
-    { url: 'about.html#overview', title: 'About MACPL', text: 'Complex, technically challenging auto components for vehicle safety. Started in 1997 by Ram Bhogale and Ajit Soundalgekar to make steering columns for scooters and three-wheelers.' },
-    { url: 'about.html#vision', title: 'Vision', text: 'To be a well respected innovative group that is most preferred as a partner in progress globally.' },
-    { url: 'about.html#values', title: 'Values', text: 'Integrity, commitment, compassion, passion, innovation, proud of roots. The six values of the rising sun.' },
-    { url: 'about.html#management', title: 'Management', text: 'Ram Bhogale, Chairman. Ajit Soundalgekar, Managing Director. Plant heads Anant Adhav, Vivek Deshpande, Avinash Kude. Leadership.' },
-    { url: 'about.html#strengths', title: 'Strengths', text: 'Fast development, mass manufacturing, in-house design of fixtures, tooling and furnaces, robotic cells, in-house alloy, TPM, SAP, USD 10 million in assets. Infrastructure.' },
-    { url: 'about.html#financials', title: 'Financials', text: 'Annual return 2021–22 and CSR policy documents (PDF).' },
+    { url: 'about.html', open: 'overview', title: 'About MACPL', text: 'Complex, technically challenging auto components for vehicle safety. Started in 1997 by Ram Bhogale and Ajit Soundalgekar to make steering columns for scooters and three-wheelers.' },
+    { url: 'about.html', open: 'vision', title: 'Vision', text: 'To be a well respected innovative group that is most preferred as a partner in progress globally.' },
+    { url: 'about.html', open: 'values', title: 'Values', text: 'Integrity, commitment, compassion, passion, innovation, proud of roots. The six values of the rising sun.' },
+    { url: 'about.html', open: 'management', title: 'Management', text: 'Ram Bhogale, Chairman. Ajit Soundalgekar, Managing Director. Plant heads Anant Adhav, Vivek Deshpande, Avinash Kude. Leadership.' },
+    { url: 'about.html', open: 'strengths', title: 'Strengths', text: 'Fast development, mass manufacturing, in-house design of fixtures, tooling and furnaces, robotic cells, in-house alloy, TPM, SAP, USD 10 million in assets. Infrastructure.' },
+    { url: 'about.html', open: 'financials', title: 'Financials', text: 'Annual return 2021–22 and CSR policy documents (PDF).' },
     { url: 'quality.html', title: 'Quality', text: 'Total Productive Maintenance (TPM), six parameters: product, quality, cost, delivery, safety, morale. Quality policy. ISO 9001, ISO 14001 and OHSAS 18001 certification with TUV Nord. Integrated management policy.' },
     { url: 'news.html', title: 'News and events', text: 'MACPL now with ISO 9001, ISO 14001 and OHSAS 18001 certification. TUV Nord auditors.' },
     { url: 'group.html', title: 'The Group', text: 'Applied Innovation & Technology Group (AITG). The rising sun identity, brand essence, the visionary Nanasaheb Bhogale: knowledge is the ultimate quest. Group companies: Umasons, Dhruv Coatings, Bhogale Automotive, Preci Fab, Technocraft Toolings, iInvent Labs. Honest business with honest relationships.' },
@@ -269,8 +273,8 @@
   var resultsList = document.getElementById('search-results');
   if (resultsList) {
     var index = PAGES.slice();
-    PROCESSES.forEach(function (p) { index.push({ url: 'processes.html#' + p.id, title: p.name, text: 'Process. ' + p.body + ' ' + p.tags.join(', ') }); });
-    PRODUCTS.forEach(function (p) { index.push({ url: 'products.html?seg=' + p.seg, title: p.name, text: p.segment + ' product. ' + p.note }); });
+    PROCESSES.forEach(function (p) { index.push({ url: 'processes.html', open: p.id, title: p.name, text: 'Process. ' + p.body + ' ' + p.tags.join(', ') }); });
+    PRODUCTS.forEach(function (p) { index.push({ url: 'products.html', open: p.seg, title: p.name, text: p.segment + ' product. ' + p.note }); });
     var qm = /[?&]q=([^&]*)/.exec(location.search);
     var query = qm ? decodeURIComponent(qm[1].replace(/\+/g, ' ')).trim() : '';
     var qInput = document.getElementById('q-page'); if (qInput) qInput.value = query;
@@ -285,7 +289,7 @@
         ? hits.length + (hits.length === 1 ? ' result' : ' results') + ' for “' + query + '”'
         : 'No results for “' + query + '”. Try a product, process or page name.';
       hits.forEach(function (r) {
-        resultsList.appendChild(el('li', null, [el('a', { href: r.url }, [
+        resultsList.appendChild(el('li', null, [el('a', r.open ? { href: r.url, 'data-open': r.open } : { href: r.url }, [
           el('b', { text: r.title }),
           el('span', { text: r.text.length > 160 ? r.text.slice(0, 157) + '…' : r.text })
         ])]));
